@@ -105,3 +105,5 @@ dist
 
 generated
 prisma.yml
+.vscode
+yarn.lock
