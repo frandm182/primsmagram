@@ -3,10 +3,8 @@ import { generateToken } from '../../../utils';
 
 export default {
   Mutation: {
-    confirmSecret: async (_, args) => {
+    confirmSecret: async (_, args, { request }) => {
       const { secret, email } = args;
-      console.log({ secret, email });
-
       const user  = await prisma.user({ email });
       if (user.loginSecret === secret) {
         //JWT

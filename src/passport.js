@@ -14,7 +14,9 @@ const jwtOptions = {
 
 const verifyUser = async (payload, done) => {
   try {
+
     const user = await prisma.user({ id: payload.id });
+
     if (user) {
       return done(null, user);
     } else {
