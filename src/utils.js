@@ -1,10 +1,7 @@
-import dotenv from 'dotenv';
-import path from 'path';
-dotenv.config({ path: path.resolve(__dirname, '.env')});
-
 import { adjetives, nouns } from "./words";
 import nodemailer from 'nodemailer';
 import sgTransport from 'nodemailer-sendgrid-transport';
+import jwt from 'jsonwebtoken';
 
 
 export const generateSecret = () => {
@@ -18,7 +15,6 @@ export const sendMail = email => {
       api_key: process.env.SENDGRID_APIKEY
     }
   }
-  console.log(options);
   const client = nodemailer.createTransport(sgTransport(options));
   return client.sendMail(email);
 };
@@ -32,3 +28,5 @@ export const sendSecretMail = (address, secret) => {
   }
   return sendMail(email);
 }
+
+export const generateToken = id => jwt.sign({ id }, process.env.JWT_SECRET);
