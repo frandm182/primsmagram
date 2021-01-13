@@ -13,5 +13,8 @@ export default {
         posts
       };
     }
+  },
+  User: {
+    fullName: ({ firstName, lastName }) => `${firstName} ${lastName}`
   }
 }
