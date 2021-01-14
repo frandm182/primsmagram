@@ -1,6 +1,7 @@
 export const USER_FRAGMEMNT = `
   id
   userName
+  avatar
 `;
 
 export const COMMENT_FRAGMEMNT = `
@@ -37,7 +38,7 @@ export const ROOM_FRAGMEMNT = `
   fragment RoomParts on Room {
     id
     participants {
-      id
+      ${USER_FRAGMEMNT}
     }
   }
 `;
