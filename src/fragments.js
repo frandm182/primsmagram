@@ -1,44 +1,60 @@
-export const USER_FRAGMEMNT = `
+export const USER_FRAGMENT = `
   id
   userName
   avatar
 `;
 
-export const COMMENT_FRAGMEMNT = `
+export const COMMENT_FRAGMENT = `
   id
   text
   user {
-    ${USER_FRAGMEMNT}
+    ${USER_FRAGMENT}
   }
 `;
 
-export const FILE_FRAGMEMNT = `
+export const FILE_FRAGMENT = `
   id
   url
 `;
 
-export const FULL_POST_FRAGMEMNT = `
+export const MESSAGE_FRAGMENT = `
+  id
+  text
+  to {
+    ${USER_FRAGMENT}
+  }
+  from {
+    ${USER_FRAGMENT}
+  }
+`;
+
+export const FULL_POST_FRAGMENT = `
   fragment PostParts on Post {
     id
     location
     caption
     user {
-      ${USER_FRAGMEMNT}
+      ${USER_FRAGMENT}
     }
     files {
-      ${FILE_FRAGMEMNT}
+      ${FILE_FRAGMENT}
     }
     comments {
-      ${COMMENT_FRAGMEMNT}
+      ${COMMENT_FRAGMENT}
     }
   }
 `;
 
-export const ROOM_FRAGMEMNT = `
+export const ROOM_FRAGMENT = `
   fragment RoomParts on Room {
     id
     participants {
-      ${USER_FRAGMEMNT}
+      ${USER_FRAGMENT}
+    }
+    messages {
+      ${MESSAGE_FRAGMENT}
     }
   }
 `;
+
+
