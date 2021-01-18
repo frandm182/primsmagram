@@ -13,8 +13,8 @@ type User {
   comments: [Comment!]! @relation(name: "CommentOfUser", onDelete: CASCADE)
   rooms: [Room!]!
   loginSecret: String
-  createdAt: String!
-  updatedAt: String!
+  createdAt: String
+  updatedAt: String
 }
 
 type Post {
