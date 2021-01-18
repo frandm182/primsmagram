@@ -18,6 +18,8 @@ type User {
   loginSecret: String!
   createdAt: String
   updatedAt: String
+  followingCount: Int!
+  followersCount: Int!
 }
 
 type Post {
